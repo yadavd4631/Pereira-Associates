@@ -93,9 +93,6 @@ export function AppLayout({
               {label}
             </Link>
           ))}
-          <Link className="p-nav-contact" href={pageHref('Contact')} onClick={() => setMenuOpen(false)}>
-            Contact Us <ArrowUpRight size={14} />
-          </Link>
         </nav>
       </header>
       <main>{children}</main>

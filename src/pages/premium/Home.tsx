@@ -90,7 +90,6 @@ export function Home() {
               </a>
             ))}
           </div>
-          <p className="p-section-intro p-home-area-note">Litigation and non-litigation services across these areas.</p>
         </div>
       </section>
 

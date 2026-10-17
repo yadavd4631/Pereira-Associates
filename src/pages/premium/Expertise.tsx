@@ -31,16 +31,8 @@ export function Expertise() {
           <h2 className="p-section-title">Our practices</h2>
           <p className="p-section-intro">The practice covers the following areas of work.</p>
           <div className="p-practice-groups">
-            <PracticeGroup
-              title="Litigation"
-              description="Representation and counsel across disputes and related matters."
-              items={litigation}
-            />
-            <PracticeGroup
-              title="Non-litigation"
-              description="Documentation, agreements and advisory work for people and businesses."
-              items={nonLitigation}
-            />
+            <PracticeGroup items={litigation} startIndex={0} />
+            <PracticeGroup items={nonLitigation} startIndex={litigation.length} />
           </div>
         </section>
 
@@ -63,19 +55,21 @@ function PracticeGroup({
   title,
   description,
   items,
+  startIndex = 0,
 }: {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   items: string[];
+  startIndex?: number;
 }) {
   return (
     <article className="p-practice-group">
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <ol>
+      {title && <h2>{title}</h2>}
+      {description && <p>{description}</p>}
+      <ol style={!title && !description ? { borderTop: 'none' } : undefined}>
         {items.map((item, index) => (
           <li key={item}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
+            <span>{String(startIndex + index + 1).padStart(2, '0')}</span>
             <span>{item}</span>
           </li>
         ))}
