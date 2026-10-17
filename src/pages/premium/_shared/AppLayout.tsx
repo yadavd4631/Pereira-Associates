@@ -98,8 +98,11 @@ export function AppLayout({
       <main>{children}</main>
       <footer className="p-footer">
         <div className="p-footer-brand">
-          Pereira &amp; Associates
-          <small>Advocates &amp; Notary · Mumbai</small>
+          <span className="p-brand-mark" aria-hidden="true">P&amp;A</span>
+          <div>
+            <span>Pereira &amp; Associates</span>
+            <small>Advocates &amp; Notary · Mumbai</small>
+          </div>
         </div>
         <nav className="p-footer-links" aria-label="Footer navigation">
           {pages.slice(1).map(({ label, page }) => (

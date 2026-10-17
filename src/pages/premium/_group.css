@@ -663,7 +663,10 @@
 .p-careers-actions a { color:#f5efe3; }
 .p-contact-person { transition:padding .3s; } .p-contact-person:hover { padding-inline:12px; background:var(--pa-surface); }
 .p-footer { background:#0b211e; padding-top:56px; padding-bottom:36px; }
-.p-footer-brand { font-size:26px; font-style:italic; }
+.p-footer-brand { display:flex; align-items:center; gap:14px; font-size:22px; font-style:normal; font-family:'Playfair Display', Georgia, serif; color:#fffefa; }
+.p-footer-brand small { font-style:normal; margin-top:2px; font-size:11px; }
+.p-footer-brand .p-brand-mark { border-color:var(--pa-brass); color:var(--pa-brass); background:rgba(201,164,106,.08); flex-shrink:0; font-style:normal; }
+.p-footer-brand .p-brand-mark::after { border-color:rgba(201,164,106,.35); }
 
 @media (max-width:900px) {
   .pa-proof { grid-template-columns:1fr 1fr; } .pa-proof > p { grid-column:1/-1; }
