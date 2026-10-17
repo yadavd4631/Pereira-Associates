@@ -133,11 +133,8 @@ export function KnowledgeCenter() {
         <section className="p-section">
           <div className="p-address-panel">
             <div>
-              <p className="p-eyebrow">Custom Briefings &amp; In-House Seminars</p>
-              <h2 className="p-section-title">Need a specific presentation or advisory?</h2>
-              <p className="p-section-intro">
-                Our advocates conduct customized seminars and legal documentation workshops for societies, corporates, and institutions.
-              </p>
+              <p className="p-eyebrow">Pereira &amp; Associates · Advocates &amp; Notary</p>
+              <h2 className="p-section-title">Contact Us</h2>
             </div>
             <a className="p-button" href={pageHref('Contact')}>
               Contact Us <ArrowRight size={15} />
