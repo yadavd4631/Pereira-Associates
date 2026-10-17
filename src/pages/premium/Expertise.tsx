@@ -28,7 +28,7 @@ export function Expertise() {
 
         <section className="p-section">
           <p className="p-eyebrow">Scope of work</p>
-          <h2 className="p-section-title">Litigation and non-litigation matters</h2>
+          <h2 className="p-section-title">Our practices</h2>
           <p className="p-section-intro">The practice covers the following areas of work.</p>
           <div className="p-practice-groups">
             <PracticeGroup
@@ -48,10 +48,10 @@ export function Expertise() {
           <div className="p-address-panel">
             <div>
               <p className="p-eyebrow">Contact</p>
-              <h2 className="p-section-title">Speak with the practice</h2>
-              <p className="p-section-intro p-approach-note">The office is based in Bandra West, Mumbai.</p>
+              <h2 className="p-section-title">Contact Us</h2>
+              <p className="p-section-intro p-approach-note">Our office is based in Bandra West, Mumbai.</p>
             </div>
-            <a className="p-button" href={pageHref('Contact')}>Office contact details <ArrowRight size={15} /></a>
+            <a className="p-button" href={pageHref('Contact')}>Contact Us <ArrowRight size={15} /></a>
           </div>
         </section>
       </div>

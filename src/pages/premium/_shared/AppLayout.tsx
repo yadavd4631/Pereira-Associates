@@ -3,19 +3,20 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { Link } from 'wouter';
 import '../_group.css';
 
-export type SitePage = 'Home' | 'About' | 'Expertise' | 'Team' | 'Contact';
+export type SitePage = 'Home' | 'About' | 'Expertise' | 'Team' | 'Knowledge' | 'Contact';
 
 const pages: { label: string; page: SitePage }[] = [
   { label: 'Home', page: 'Home' },
-  { label: 'The firm', page: 'About' },
-  { label: 'Expertise', page: 'Expertise' },
-  { label: 'Our people', page: 'Team' },
-  { label: 'Contact', page: 'Contact' },
+  { label: 'About our firm', page: 'About' },
+  { label: 'Our practices', page: 'Expertise' },
+  { label: 'Team', page: 'Team' },
+  { label: 'Knowledge Center', page: 'Knowledge' },
+  { label: 'Contact Us', page: 'Contact' },
 ];
 
 export function pageHref(page: SitePage) {
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-  const pagePath = page === 'Home' ? '/' : `/${page.toLowerCase()}`;
+  const pagePath = page === 'Home' ? '/' : page === 'Knowledge' ? '/knowledge' : `/${page.toLowerCase()}`;
   return `${basePath}${pagePath}` || '/';
 }
 
@@ -93,7 +94,7 @@ export function AppLayout({
             </Link>
           ))}
           <Link className="p-nav-contact" href={pageHref('Contact')} onClick={() => setMenuOpen(false)}>
-            Contact the office <ArrowUpRight size={14} />
+            Contact Us <ArrowUpRight size={14} />
           </Link>
         </nav>
       </header>

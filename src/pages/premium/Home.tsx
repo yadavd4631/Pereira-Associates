@@ -15,7 +15,7 @@ const areas = [
   'Society forms & legal opinions',
 ];
 
-const initials = ['DP', 'RP', 'NK', 'BF', 'LC', 'BP'];
+const initials = ['DP', 'RP', 'NMK', 'BF', 'LC', 'BP'];
 const virtues = ['Integrity', 'Excellence', 'Trust', 'Diligence', 'Justice'];
 const d = (ms: number) => ({ ['--d' as string]: `${ms}ms` });
 
@@ -42,7 +42,7 @@ export function Home() {
           <p className="lede pa-rise" style={d(260)}>Thoughtful legal guidance for people and businesses navigating complex matters.</p>
           <div className="pa-hero-actions pa-rise" style={d(400)}>
             <a className="pa-btn-brass" href={pageHref('Expertise')} data-testid="link-hero-expertise">View areas of practice <ArrowRight size={16} /></a>
-            <a className="pa-ghost" href={pageHref('About')} data-testid="link-hero-about">About the firm <ArrowUpRight size={15} /></a>
+            <a className="pa-ghost" href={pageHref('About')} data-testid="link-hero-about">About our firm <ArrowUpRight size={15} /></a>
           </div>
         </div>
       </section>
@@ -79,7 +79,7 @@ export function Home() {
           <div className="pa-areas-head rv">
             <div>
               <p className="p-eyebrow">Areas of work</p>
-              <h2 className="p-display" id="home-areas-heading">Litigation and <em>non-litigation</em> practice</h2>
+              <h2 className="p-display" id="home-areas-heading">Our <em>practices</em></h2>
             </div>
             <a className="pa-round" href={pageHref('Expertise')} aria-label="Explore all areas of practice"><ArrowUpRight size={22} /></a>
           </div>
@@ -106,25 +106,21 @@ export function Home() {
         </div>
       </section>
 
-      <section className="pa-wrap pa-people">
+      <section className="pa-wrap pa-people" style={{ gridTemplateColumns: '1fr' }}>
         <div className="rv">
-          <p className="p-eyebrow">Our people</p>
-          <h2 className="p-display">A close-knit team, <em>based in Bandra.</em></h2>
-          <p className="p-body">Working together from our Bandra office, our team brings care and attention to every instruction.</p>
+          <p className="p-eyebrow">The Team</p>
+          <p className="p-body" style={{ fontSize: '18px', lineHeight: 1.7, maxWidth: '720px', margin: '14px 0 24px' }}>
+            Working together from our Bandra office, our team brings care and attention to every instruction.
+          </p>
           <div className="pa-initials" aria-hidden="true">{initials.map((i) => <span key={i}>{i}</span>)}</div>
-        </div>
-        <div className="pa-big rv" style={d(150)}>
-          <strong>06</strong>
-          <span>colleagues at Pereira &amp; Associates</span>
-          <a className="p-button" href={pageHref('Team')} data-testid="link-meet-team">Meet the team <ArrowRight size={15} /></a>
         </div>
       </section>
 
       <section className="pa-visit">
         <div className="rv">
           <p className="p-eyebrow">Our office · Bandra West</p>
-          <h2>Find us in <em>Mumbai.</em></h2>
-          <a className="pa-btn-brass" href={pageHref('Contact')} data-testid="link-home-contact"><MapPin size={15} /> Contact and office details</a>
+          <h2>Find our <em>office.</em></h2>
+          <a className="pa-btn-brass" href={pageHref('Contact')} data-testid="link-home-contact"><MapPin size={15} /> Contact Us</a>
         </div>
         <address className="rv" style={d(150)}>604, 6th Floor, Pooja Apartments,<br />Behind Parsee Agyari, Chinchpokli Road,<br />Off. Hill Road, Bandra West,<br />Mumbai 400050, India.</address>
       </section>

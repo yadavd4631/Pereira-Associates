@@ -11,7 +11,7 @@ const milestones = [
 export function About() {
   return (
     <AppLayout active="About">
-      <PageHero eyebrow="Pereira &amp; Associates · Bandra West, Mumbai" title={<>About <em>the firm</em></>} lede="A Mumbai legal practice serving people and businesses across corporate, property, arbitration, commercial and testamentary matters." image="legal-study.jpg" alt="Illustrative image of legal books and papers" index="02" />
+      <PageHero eyebrow="Pereira &amp; Associates · Bandra West, Mumbai" title={<>About <em>our firm</em></>} lede="A Mumbai legal practice serving people and businesses across corporate, property, arbitration, commercial and testamentary matters." image="legal-study.jpg" alt="Illustrative image of legal books and papers" index="02" />
       <div className="p-container">
 
         <section className="p-section" aria-labelledby="about-profile">
@@ -65,7 +65,7 @@ export function About() {
               <h2 className="p-section-title">“Principled, practical and client-focused legal services.”</h2>
               <p className="p-section-intro p-approach-note">Integrity. Excellence. Trust. Diligence. Justice.</p>
             </div>
-            <a className="p-button" href={pageHref('Contact')}>Contact the practice <ArrowRight size={15} /></a>
+            <a className="p-button" href={pageHref('Contact')}>Contact Us <ArrowRight size={15} /></a>
           </div>
         </section>
       </div>

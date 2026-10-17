@@ -4,28 +4,33 @@ import { About } from '@/pages/premium/About';
 import { Contact } from '@/pages/premium/Contact';
 import { Expertise } from '@/pages/premium/Expertise';
 import { Home } from '@/pages/premium/Home';
+import { KnowledgeCenter } from '@/pages/premium/KnowledgeCenter';
 import { Team } from '@/pages/premium/Team';
 import { AppLayout } from '@/pages/premium/_shared/AppLayout';
 
 const pageMetadata = {
   home: {
-    title: 'Mumbai Legal Counsel | Pereira & Associates',
+    title: 'Pereira & Associates',
     description: 'Pereira & Associates is a Mumbai legal practice offering considered counsel across corporate, property, commercial, arbitration and testamentary matters.',
   },
   about: {
-    title: 'About the Firm | Pereira & Associates, Mumbai',
+    title: 'Pereira & Associates',
     description: 'Learn about Adv. Darryl Pereira, his legal education, professional experience, Central Government panel work and appointment as a Government of India Notary.',
   },
   expertise: {
-    title: 'Legal Practice Areas | Pereira & Associates, Mumbai',
+    title: 'Pereira & Associates',
     description: 'Explore the litigation and non-litigation practice areas of Pereira & Associates, including corporate, property, arbitration and documentation matters.',
   },
   team: {
-    title: 'Our Team | Pereira & Associates, Advocates & Notary',
-    description: 'Meet the six colleagues at Pereira & Associates, a close-knit legal practice based in Bandra West, Mumbai.',
+    title: 'Pereira & Associates',
+    description: 'Meet the team at Pereira & Associates, a close-knit legal practice based in Bandra West, Mumbai.',
+  },
+  knowledge: {
+    title: 'Pereira & Associates',
+    description: 'Legal presentation decks and briefings from Pereira & Associates across property, corporate, testamentary, and arbitration law.',
   },
   contact: {
-    title: 'Contact & Careers | Pereira & Associates, Mumbai',
+    title: 'Pereira & Associates',
     description: 'Find Pereira & Associates at Pooja Apartments in Bandra West, Mumbai, contact the team, or enquire about career and internship opportunities.',
   },
 };
@@ -76,13 +81,18 @@ function TeamPage() {
   return <Team />;
 }
 
+function KnowledgePage() {
+  usePageMetadata(pageMetadata.knowledge.title, pageMetadata.knowledge.description);
+  return <KnowledgeCenter />;
+}
+
 function ContactPage() {
   usePageMetadata(pageMetadata.contact.title, pageMetadata.contact.description);
   return <Contact />;
 }
 
 function NotFoundPage() {
-  usePageMetadata('Page Not Found | Pereira & Associates', 'The requested page could not be found.');
+  usePageMetadata('Pereira & Associates', 'The requested page could not be found.');
   return (
     <AppLayout active="Home">
       <section className="mx-auto max-w-4xl px-7 py-24 text-center">
@@ -95,22 +105,12 @@ function NotFoundPage() {
 }
 
 function Disclaimer() {
-  const [accepted, setAccepted] = useState(() => {
-    try {
-      return window.localStorage.getItem('pa-disclaimer-accepted') === 'yes';
-    } catch {
-      return false;
-    }
-  });
+  // Acknowledgments should come every time the user visits / opens the page
+  const [accepted, setAccepted] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const acknowledge = () => {
     if (!checked) return;
-    try {
-      window.localStorage.setItem('pa-disclaimer-accepted', 'yes');
-    } catch {
-      // The current visit can continue if browser storage is unavailable.
-    }
     setAccepted(true);
   };
 
@@ -158,6 +158,8 @@ export default function LiveSite() {
         <Route path="/about" component={AboutPage} />
         <Route path="/expertise" component={ExpertisePage} />
         <Route path="/team" component={TeamPage} />
+        <Route path="/knowledge" component={KnowledgePage} />
+        <Route path="/knowledge-center" component={KnowledgePage} />
         <Route path="/contact" component={ContactPage} />
         <Route component={NotFoundPage} />
       </Switch>
