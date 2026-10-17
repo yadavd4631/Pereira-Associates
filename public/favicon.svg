@@ -1,3 +1,19 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <!-- Premium dark forest green background -->
+  <rect width="180" height="180" rx="42" fill="#0e2623"/>
+  
+  <!-- Outer metallic brass border -->
+  <rect x="8" y="8" width="164" height="164" rx="36" stroke="#c9a46a" stroke-width="4.5" stroke-opacity="0.95"/>
+  
+  <!-- Inner delicate circle -->
+  <circle cx="90" cy="90" r="68" stroke="#c9a46a" stroke-width="1.5" stroke-opacity="0.35"/>
+  
+  <!-- Scales of Justice Symbol -->
+  <path d="M90 28 V52 M60 42 H120 M60 42 L50 62 H70 Z M120 42 L110 62 H130 Z" stroke="#e6c690" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Monogram P&A -->
+  <text x="90" y="122" font-family="Georgia, 'Playfair Display', serif" font-size="54" font-weight="bold" font-style="italic" fill="#f5efe3" text-anchor="middle">P&amp;A</text>
+  
+  <!-- Subtitle -->
+  <text x="90" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#c9a46a" text-anchor="middle" letter-spacing="3.5">ADVOCATES</text>
 </svg>
