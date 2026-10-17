@@ -8,7 +8,6 @@ interface TeamMember {
   initials: string;
   tier: string;
   tierNumber: string;
-  reportingTo?: string;
   description: string;
   image: string;
 }
@@ -29,7 +28,6 @@ const people: TeamMember[] = [
     initials: 'RP',
     tier: 'Practice Management',
     tierNumber: 'Tier 02',
-    reportingTo: 'Adv. Darryl Pereira',
     description: 'Directs practice operations, institutional relations, registry coordination, and executive administration.',
     image: 'team/rosenda-pereira.jpg',
   },
@@ -39,7 +37,6 @@ const people: TeamMember[] = [
     initials: 'NMK',
     tier: 'Senior Legal',
     tierNumber: 'Tier 03',
-    reportingTo: 'Practice Leadership',
     description: 'Senior legal advocate leading commercial litigation strategy, property dispute resolution, and high-value drafting.',
     image: 'team/natasha-kasad.jpg',
   },
@@ -49,7 +46,6 @@ const people: TeamMember[] = [
     initials: 'BF',
     tier: 'Legal Associate',
     tierNumber: 'Tier 04',
-    reportingTo: 'Adv. Natasha M. Kasad',
     description: 'Advocate handling corporate documentation, civil court proceedings, testamentary petitions, and society matters.',
     image: 'team/beverly-fernandes.jpg',
   },
@@ -59,7 +55,6 @@ const people: TeamMember[] = [
     initials: 'LC',
     tier: 'Junior Legal',
     tierNumber: 'Tier 05',
-    reportingTo: 'Adv. Beverly Fernandes',
     description: 'Junior advocate assisting on case law research, title searches, court appearances, and documentation filings.',
     image: 'team/lisa-marie.jpg',
   },
@@ -69,7 +64,6 @@ const people: TeamMember[] = [
     initials: 'BP',
     tier: 'Internship',
     tierNumber: 'Tier 06',
-    reportingTo: 'Adv. Lisa Marie Chittilappilly',
     description: 'Legal intern supporting judicial precedents research, brief preparation, and chambers archive management.',
     image: 'team/boris-pereira.jpg',
   },
@@ -148,9 +142,6 @@ export function Team() {
                         <div className="pa-node-content">
                           <div className="pa-node-meta">
                             <span className="pa-node-tier">{person.tierNumber} · {person.tier}</span>
-                            {person.reportingTo && (
-                              <span className="pa-node-reporting">Reports to: {person.reportingTo}</span>
-                            )}
                           </div>
                           <h2 className="pa-node-name">{person.name}</h2>
                           <p className="pa-node-role">{person.role}</p>

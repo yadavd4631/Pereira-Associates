@@ -105,12 +105,24 @@ function NotFoundPage() {
 }
 
 function Disclaimer() {
-  // Acknowledgments should come every time the user visits / opens the page
-  const [accepted, setAccepted] = useState(false);
+  // Notice appears per browser session (when visiting/opening the site),
+  // but does not reappear on every click while browsing the site.
+  const [accepted, setAccepted] = useState(() => {
+    try {
+      return window.sessionStorage.getItem('pa-disclaimer-accepted') === 'yes';
+    } catch {
+      return false;
+    }
+  });
   const [checked, setChecked] = useState(false);
 
   const acknowledge = () => {
     if (!checked) return;
+    try {
+      window.sessionStorage.setItem('pa-disclaimer-accepted', 'yes');
+    } catch {
+      // continue if storage not available
+    }
     setAccepted(true);
   };
 
