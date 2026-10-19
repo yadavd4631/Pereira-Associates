@@ -7,7 +7,6 @@ import {
   Maximize2,
   Minimize2,
   Presentation,
-  ShieldCheck,
   X,
 } from 'lucide-react';
 import { AppLayout, assetHref, pageHref, PageHero } from './_shared/AppLayout';
@@ -19,7 +18,7 @@ interface PresentationItem {
   category: string;
   description: string;
   slidesCount: number;
-  topics: string[];
+  tags: string[];
 }
 
 const presentations: PresentationItem[] = [
@@ -31,12 +30,7 @@ const presentations: PresentationItem[] = [
     description:
       'A comprehensive legal guide on family settlement deeds, mediation principles, statutory validity, partition arrangements, stamp duty, and dispute prevention.',
     slidesCount: 17,
-    topics: [
-      'Concept and legal validity of Family Settlement Deeds',
-      'Mediation process and peaceful dispute resolution',
-      'Rights of family members and partition arrangements',
-      'Registration, stamp duty, and court precedent considerations',
-    ],
+    tags: ['Family Settlement', 'Mediation Act', 'Partition & Shares', 'Stamp Duty & Registration'],
   },
   {
     id: 'power-of-attorney',
@@ -46,12 +40,7 @@ const presentations: PresentationItem[] = [
     description:
       'In-depth analysis of General & Special Powers of Attorney, execution formalities, NRI attestation, consular authentication, and revocation.',
     slidesCount: 26,
-    topics: [
-      'General vs Special Power of Attorney distinctions',
-      'Execution by NRIs, consular authentication, and apostille',
-      'Registration and adjudication before the Collector of Stamps',
-      'Duties of Attorney, limits of authority, and revocation procedures',
-    ],
+    tags: ['General & Special POA', 'NRI Apostille', 'Collector Adjudication', 'Revocation Formalities'],
   },
   {
     id: 'gift-release-deed',
@@ -61,12 +50,7 @@ const presentations: PresentationItem[] = [
     description:
       'Legal requirements governing voluntary property transfers through Gift Deeds and relinquishment of undivided shares through Release Deeds.',
     slidesCount: 24,
-    topics: [
-      'Essential ingredients of a valid Gift Deed under Transfer of Property Act',
-      'Acceptance during donor’s lifetime and irrevocable status',
-      'Release Deed execution between co-owners and legal heirs',
-      'Stamp duty concessions for family transfers and registration mandates',
-    ],
+    tags: ['Gift Deed Essentials', 'Release of Undivided Share', 'Family Duty Concessions', 'Registration'],
   },
   {
     id: 'registering-will',
@@ -76,12 +60,7 @@ const presentations: PresentationItem[] = [
     description:
       'Essential walkthrough on drafting, executing, attesting, and registering a Will before the Sub-Registrar of Assurances to avoid contentious disputes.',
     slidesCount: 10,
-    topics: [
-      'Legal prerequisites for executing a valid testamentary will',
-      'Role of attesting witnesses and medical fitness certificates',
-      'Procedure before the Sub-Registrar of Assurances',
-      'Mitigating grounds of challenge: undue influence, fraud, and disputes',
-    ],
+    tags: ['Will Execution', 'Sub-Registrar Process', 'Attestation Formalities', 'Dispute Mitigation'],
   },
   {
     id: 'redevelopment-mumbai',
@@ -91,12 +70,7 @@ const presentations: PresentationItem[] = [
     description:
       'Complete legal framework on housing society redevelopment under Section 79A, developer selection, Development Agreements, and member protection.',
     slidesCount: 22,
-    topics: [
-      'Section 79A directives under the Maharashtra Co-operative Societies Act',
-      'Selection of Project Management Consultants (PMC) and Developer tenders',
-      'Key clauses in Development Agreement & Permanent Alternate Accommodation Agreement (PAAA)',
-      'Hardship compensation, corpus fund, transit rent, and bank guarantees',
-    ],
+    tags: ['Section 79A Compliance', 'Development Agreement', 'PAAA Execution', 'Bank Guarantees'],
   },
   {
     id: 'law-testamentary',
@@ -106,12 +80,7 @@ const presentations: PresentationItem[] = [
     description:
       'Practical analysis of testamentary proceedings in the Bombay High Court, including Probate Petitions, Letters of Administration, caveats, and citations.',
     slidesCount: 12,
-    topics: [
-      'Distinction between Probate, Letters of Administration, and Succession Certificate',
-      'Testamentary jurisdiction and filings in the Bombay High Court',
-      'Caveats, citations, and handling contentious testamentary suits',
-      'Intestate succession principles and ancestral property devolution',
-    ],
+    tags: ['Probate Proceedings', 'Letters of Administration', 'Bombay High Court', 'Caveats & Citations'],
   },
 ];
 
@@ -159,7 +128,7 @@ export function KnowledgeCenter() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [activeDeck, nextSlide, prevSlide, closePresentation]);
 
-  // Lock body scroll when viewer modal is open
+  // Lock body scroll when modal is open
   useEffect(() => {
     if (activeDeck) {
       document.body.style.overflow = 'hidden';
@@ -183,7 +152,7 @@ export function KnowledgeCenter() {
       />
 
       <div className="p-container">
-        <section className="p-section" aria-label="Presentations and PPT decks">
+        <section className="p-section" aria-label="Chambers Presentations">
           <p className="p-eyebrow">Presentation Decks &amp; Briefings</p>
           <h2 className="p-section-title">Chambers Presentations</h2>
           <p className="p-section-intro">
@@ -194,53 +163,58 @@ export function KnowledgeCenter() {
           <div className="pa-ppt-grid">
             {presentations.map((item) => (
               <article key={item.id} className="pa-ppt-card rv">
-                <div className="pa-ppt-head">
-                  <div className="pa-ppt-badge">
-                    <Presentation size={17} />
-                    <span>Presentation Deck</span>
+                <div>
+                  <div className="pa-ppt-head">
+                    <div className="pa-ppt-badge">
+                      <Presentation size={15} />
+                      <span>Presentation Deck</span>
+                    </div>
+                    <span className="pa-ppt-category">{item.category}</span>
                   </div>
-                  <span className="pa-ppt-category">{item.category}</span>
-                </div>
 
-                <div
-                  className="pa-ppt-cover-preview"
-                  onClick={() => openPresentation(item)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') openPresentation(item);
-                  }}
-                  aria-label={`Open presentation: ${item.title}`}
-                >
-                  <img
-                    src={assetHref(`slides/${item.slug}/slide-001.jpg`)}
-                    alt={`Title slide of ${item.title}`}
-                    loading="lazy"
-                  />
-                  <div className="pa-ppt-cover-overlay">
-                    <span className="pa-ppt-cover-btn">
-                      <Eye size={18} /> View Slides
-                    </span>
+                  <div
+                    className="pa-ppt-cover-preview"
+                    onClick={() => openPresentation(item)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') openPresentation(item);
+                    }}
+                    aria-label={`Open presentation: ${item.title}`}
+                  >
+                    <img
+                      src={assetHref(`slides/${item.slug}/slide-001.jpg`)}
+                      alt={`Title slide of ${item.title}`}
+                      loading="lazy"
+                    />
+                    <div className="pa-ppt-cover-overlay">
+                      <span className="pa-ppt-cover-btn">
+                        <Eye size={16} /> View Slides
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <h3 className="pa-ppt-title">{item.title}</h3>
-                <p className="pa-ppt-desc">{item.description}</p>
+                  <h3
+                    className="pa-ppt-title"
+                    onClick={() => openPresentation(item)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {item.title}
+                  </h3>
 
-                <div className="pa-ppt-topics">
-                  <h4>Key topics covered:</h4>
-                  <ul>
-                    {item.topics.map((t) => (
-                      <li key={t}>{t}</li>
+                  <p className="pa-ppt-desc">{item.description}</p>
+
+                  <div className="pa-ppt-tags">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="pa-ppt-tag">
+                        {tag}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
                 <div className="pa-ppt-foot">
-                  <span className="pa-ppt-meta">
-                    <ShieldCheck size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 4, color: 'var(--pa-copper)' }} />
-                    {item.slidesCount} Slides · View Only
-                  </span>
+                  <span className="pa-ppt-meta">{item.slidesCount} Slides · View Only</span>
                   <button
                     className="pa-ppt-view-btn"
                     type="button"
@@ -256,11 +230,16 @@ export function KnowledgeCenter() {
           </div>
         </section>
 
+        {/* Contact Strip */}
         <section className="p-section">
           <div className="p-address-panel">
             <div>
               <p className="p-eyebrow">Pereira &amp; Associates · Advocates &amp; Notary</p>
-              <h2 className="p-section-title">Contact Us</h2>
+              <h2 className="p-section-title">Schedule a Consultation</h2>
+              <p className="p-section-intro p-approach-note">
+                Need considered counsel on testamentary succession, property redevelopment, or documentation?
+                Reach our Bandra West chambers.
+              </p>
             </div>
             <a className="p-button" href={pageHref('Contact')}>
               Contact Us <ArrowRight size={15} />
@@ -282,7 +261,7 @@ export function KnowledgeCenter() {
           <header className="pa-modal-header">
             <div className="pa-modal-info">
               <span className="pa-modal-badge">
-                <Presentation size={14} /> Knowledge Centre
+                <Presentation size={13} /> Knowledge Centre
               </span>
               <h2 className="pa-modal-title">{activeDeck.title}</h2>
             </div>
@@ -333,14 +312,14 @@ export function KnowledgeCenter() {
                 className="pa-active-slide-img"
                 draggable={false}
               />
-              {/* Transparent protective shield preventing right-click & drag save */}
+              {/* Protective transparent shield */}
               <div
                 className="pa-slide-shield"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
               />
               <div className="pa-slide-watermark" aria-hidden="true">
-                Pereira &amp; Associates · Knowledge Centre
+                Pereira &amp; Associates · Knowledge Centre · View Only
               </div>
             </div>
 
