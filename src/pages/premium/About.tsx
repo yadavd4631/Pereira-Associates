@@ -23,7 +23,7 @@ export function About() {
             </div>
             <div>
               <p>Adv. Darryl Pereira passed Law in July 1992 from Government Law College. He thereafter joined the chambers of a Senior Lawyer, with whom he was associated for almost 10 years.</p>
-              <p>With more than 34 years of professional experience, his practice spans corporate, property, arbitration, commercial and testamentary matters. The office is based in Bandra and attends to matters outside Mumbai as well as documentary advisory work.</p>
+              <p>With more than 34 years of professional experience, his practice spans Corporate, Insolvency and Bankruptcy, Property, Arbitration, Commercial and Testamentary matters. The office is based in Bandra and attends to matters outside Mumbai as well as documentary advisory work. I also have associations in Delhi, Goa, Bangalore, Chennai, Pune, Kolkata &amp; Odisha and Internationally in Dubai, USA, UK, Australia and Singapore.</p>
             </div>
           </div>
         </section>

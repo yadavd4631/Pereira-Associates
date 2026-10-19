@@ -9,8 +9,8 @@ const pages: { label: string; page: SitePage }[] = [
   { label: 'Home', page: 'Home' },
   { label: 'About our firm', page: 'About' },
   { label: 'Our practices', page: 'Expertise' },
-  { label: 'Team', page: 'Team' },
-  { label: 'Knowledge Center', page: 'Knowledge' },
+  { label: 'The Team', page: 'Team' },
+  { label: 'Knowledge Centre', page: 'Knowledge' },
   { label: 'Contact Us', page: 'Contact' },
 ];
 
@@ -109,9 +109,14 @@ export function AppLayout({
             <Link key={page} href={pageHref(page)}>{label}</Link>
           ))}
         </nav>
-        <a className="p-footer-email" href="mailto:pereiraassociates604@gmail.com">
-          pereiraassociates604@gmail.com
-        </a>
+        <div className="p-footer-emails">
+          <a className="p-footer-email" href="mailto:darrylpereira@yahoo.com">
+            darrylpereira@yahoo.com
+          </a>
+          <a className="p-footer-email" href="mailto:pereiraassociates604@gmail.com">
+            pereiraassociates604@gmail.com
+          </a>
+        </div>
         <span className="p-footer-copy">© 2026 Pereira &amp; Associates. All rights reserved.</span>
       </footer>
     </div>

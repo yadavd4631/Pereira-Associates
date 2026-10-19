@@ -15,7 +15,6 @@ const areas = [
   'Society forms & legal opinions',
 ];
 
-const initials = ['DP', 'RP', 'NMK', 'BF', 'LC', 'BP'];
 const virtues = ['Integrity', 'Excellence', 'Trust', 'Diligence', 'Justice'];
 const d = (ms: number) => ({ ['--d' as string]: `${ms}ms` });
 
@@ -65,7 +64,7 @@ export function Home() {
           <p className="p-eyebrow">The practice</p>
           <h2 className="p-display" id="home-firm-heading">Experience, with attention to <em>the matter at hand.</em></h2>
           <p>Adv. Darryl Pereira passed his Law in July 1992 from Government Law College and was associated with a Senior Lawyer’s chambers for almost 10 years.</p>
-          <p>With more than 34 years of professional experience, his practice spans corporate, property, arbitration, commercial and testamentary matters. Based in Bandra, the practice also attends to matters outside Mumbai and documentary advisory work.</p>
+          <p>With more than 34 years of professional experience, his practice spans Corporate, Insolvency and Bankruptcy, Property, Arbitration, Commercial and Testamentary matters. Based in Bandra, the practice also attends to matters outside Mumbai and documentary advisory work.</p>
           <a className="p-link" href={pageHref('About')}>Read about the firm <ArrowRight size={15} /></a>
           <div className="pa-since">
             <div><strong>1992</strong><span>Government Law College</span></div>
@@ -102,16 +101,6 @@ export function Home() {
           <blockquote>“Principled, practical and client-focused legal services.”</blockquote>
           <ul className="pa-virtues">{virtues.map((v) => <li key={v}>{v}</li>)}</ul>
           <a className="pa-ghost" href={pageHref('About')}>Read about our approach <ArrowRight size={15} /></a>
-        </div>
-      </section>
-
-      <section className="pa-wrap pa-people" style={{ gridTemplateColumns: '1fr' }}>
-        <div className="rv">
-          <p className="p-eyebrow">The Team</p>
-          <p className="p-body" style={{ fontSize: '18px', lineHeight: 1.7, maxWidth: '720px', margin: '14px 0 24px' }}>
-            Working together from our Bandra office, our team brings care and attention to every instruction.
-          </p>
-          <div className="pa-initials" aria-hidden="true">{initials.map((i) => <span key={i}>{i}</span>)}</div>
         </div>
       </section>
 

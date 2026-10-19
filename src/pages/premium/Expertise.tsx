@@ -5,25 +5,35 @@ const litigation = [
   'Company Law',
   'Insolvency Bankruptcy Law',
   'General Corporate and Commercial',
-  'Real Estate',
+  'Real Estate, Conveyancing and Documentation',
   'Succession Laws & Testamentary matters',
-  'Arbitration',
+  'Arbitration and Conciliation',
   'Co-operative Housing Society',
+  'Commercial and Corporate Litigation',
+  'Property Litigation',
+  'Dispute Resolution',
 ];
 
 const nonLitigation = [
-  'Property related documentation',
-  'Release Deed, Family Arrangement, Wills',
-  'Sale Deed /Agreement of Sale',
-  'Power of Attorney, Gift Deed, Leave and License Agreement',
-  'Society Forms, Legal Opinions',
+  'Property related documentation, Due Diligence',
+  'Release Deed, Family Arrangement, Wills, Power of Attorney, Gift Deed, Leave and License Agreement etc.',
+  'Sale Deed / Agreement of Sale',
+  'Society Documentation, Legal Opinions',
   'Corporate Strategy and Other Agreements as required.',
+  'Society Redevelopment Agreements',
 ];
 
 export function Expertise() {
   return (
     <AppLayout active="Expertise">
-      <PageHero eyebrow="Pereira &amp; Associates · Mumbai" title={<>Areas of <em>practice</em></>} lede="From representation in litigation to the documents and agreements that help people and businesses move forward." image="office-atmosphere.jpg" alt="Illustrative image of a quiet legal study" index="03" />
+      <PageHero
+        eyebrow="Pereira &amp; Associates · Mumbai"
+        title={<>Areas of <em>practice</em></>}
+        lede="From representation in litigation to the documents and agreements that help people and businesses move forward."
+        image="law-books-hammer.jpg"
+        alt="Law books with gavel"
+        index="03"
+      />
       <div className="p-container">
 
         <section className="p-section">
@@ -32,10 +42,12 @@ export function Expertise() {
           <p className="p-section-intro">The practice covers the following areas of work.</p>
           <div className="p-practice-groups">
             <PracticeGroup
+              title="Litigation"
               description="Representation and counsel across disputes and related matters."
               items={litigation}
             />
             <PracticeGroup
+              title="Non-Litigation"
               description="Documentation, agreements and advisory work for people and businesses."
               items={nonLitigation}
             />
@@ -58,15 +70,18 @@ export function Expertise() {
 }
 
 function PracticeGroup({
+  title,
   description,
   items,
 }: {
+  title: string;
   description: string;
   items: string[];
 }) {
   return (
     <article className="p-practice-group">
-      <p style={{ margin: '0 0 18px', color: 'var(--pa-muted)', fontSize: '14.5px', lineHeight: 1.6 }}>
+      <h2>{title}</h2>
+      <p style={{ margin: '7px 0 18px', color: 'var(--pa-muted)', fontSize: '14.5px', lineHeight: 1.6 }}>
         {description}
       </p>
       <ol>

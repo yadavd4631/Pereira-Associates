@@ -6,8 +6,6 @@ interface TeamMember {
   name: string;
   role: string;
   initials: string;
-  tier: string;
-  tierNumber: string;
   description: string;
   image: string;
 }
@@ -17,8 +15,6 @@ const people: TeamMember[] = [
     name: 'Adv. Darryl Pereira',
     role: 'Founder & Legal Counsel',
     initials: 'DP',
-    tier: 'Firm Leadership',
-    tierNumber: 'Tier 01',
     description: 'Founding Advocate and Central Government panel counsel overseeing practice vision, senior advocacy, and client mandates.',
     image: 'team/darryl-pereira.jpg',
   },
@@ -26,44 +22,34 @@ const people: TeamMember[] = [
     name: 'Mrs. Rosenda Pereira',
     role: 'Manager',
     initials: 'RP',
-    tier: 'Practice Management',
-    tierNumber: 'Tier 02',
     description: 'Directs practice operations, institutional relations, registry coordination, and executive administration.',
     image: 'team/rosenda-pereira.jpg',
   },
   {
     name: 'Adv. Natasha M. Kasad',
-    role: 'Senior Associate',
+    role: 'Senior Legal Associate',
     initials: 'NMK',
-    tier: 'Senior Legal',
-    tierNumber: 'Tier 03',
-    description: 'Senior legal advocate leading commercial litigation strategy, property dispute resolution, and high-value drafting.',
+    description: 'Senior Legal Associate handling Corporate documentation, Civil Court proceedings, Testamentary Petitions and Society matters.',
     image: 'team/natasha-kasad.jpg',
   },
   {
     name: 'Adv. Beverly Fernandes',
-    role: 'Associate',
+    role: 'Legal Associate',
     initials: 'BF',
-    tier: 'Legal Associate',
-    tierNumber: 'Tier 04',
-    description: 'Advocate handling corporate documentation, civil court proceedings, testamentary petitions, and society matters.',
+    description: 'Legal Associate, handling Court appearances, Commercial litigation and Dispute Resolution.',
     image: 'team/beverly-fernandes.jpg',
   },
   {
-    name: 'Adv. Lisa Marie Chittilappilly',
+    name: 'Adv. Lisa Marie',
     role: 'Junior Associate',
     initials: 'LC',
-    tier: 'Junior Legal',
-    tierNumber: 'Tier 05',
-    description: 'Junior advocate assisting on case law research, title searches, court appearances, and documentation filings.',
+    description: 'Junior Associate assisting on case law research, title searches and documentation filings.',
     image: 'team/lisa-marie.jpg',
   },
   {
     name: 'Boris Pereira',
     role: 'Legal Intern',
     initials: 'BP',
-    tier: 'Internship',
-    tierNumber: 'Tier 06',
     description: 'Legal intern supporting judicial precedents research, brief preparation, and chambers archive management.',
     image: 'team/boris-pereira.jpg',
   },
@@ -77,16 +63,16 @@ export function Team() {
       <PageHero
         eyebrow="Pereira &amp; Associates · Bandra West"
         title={<>The Team</>}
-        lede="Working together from our Bandra office, our team brings care and attention to every instruction."
+        lede="Working together, our team brings care, attention and prompt service."
         image="premium-legal-library.jpg"
-        alt="AI-generated illustration of an empty legal library with bookshelves and a desk"
+        alt="Chambers legal library"
         index="04"
       />
       <div className="p-container">
         <section className="p-section" aria-label="Pereira & Associates team">
           <div className="p-team-intro" style={{ marginBottom: 12 }}>
             <p className="p-section-intro" style={{ margin: 0 }}>
-              A structured practice working in close coordination from our Bandra chambers.
+              Working together, our team brings care, attention and prompt service to every client instruction.
             </p>
           </div>
 
@@ -101,7 +87,7 @@ export function Team() {
                 data-testid="toggle-hierarchy"
               >
                 <Network size={15} />
-                Practice Hierarchy
+                Chambers Structure
               </button>
               <button
                 type="button"
@@ -117,14 +103,13 @@ export function Team() {
             </div>
             <p className="p-section-intro" style={{ margin: 0, fontSize: 13 }}>
               {viewMode === 'hierarchy'
-                ? 'Showing reporting structure from Practice Leadership to Interns.'
+                ? 'Showing our chambers team structure and responsibilities.'
                 : 'Displaying complete chambers personnel.'}
             </p>
           </div>
 
           {viewMode === 'hierarchy' ? (
             <div data-testid="team-hierarchy-view">
-              {/* Vertical Hierarchy Tree */}
               <div className="pa-hierarchy-tree" data-testid="team-hierarchy-tree">
                 {people.map((person, index) => {
                   const isLeadership = index === 0;
@@ -140,9 +125,6 @@ export function Team() {
                           <img src={assetHref(`images/${person.image}`)} alt={person.name} />
                         </div>
                         <div className="pa-node-content">
-                          <div className="pa-node-meta">
-                            <span className="pa-node-tier">{person.tierNumber} · {person.tier}</span>
-                          </div>
                           <h2 className="pa-node-name">{person.name}</h2>
                           <p className="pa-node-role">{person.role}</p>
                           <p className="pa-node-desc">{person.description}</p>
@@ -172,9 +154,9 @@ export function Team() {
                     <img src={assetHref(`images/${person.image}`)} alt={`Photograph of ${person.name}`} />
                   </div>
                   <div className="pa-person-body">
-                    <span className="pa-person-tier">{person.tierNumber} · {person.tier}</span>
                     <h2>{person.name}</h2>
-                    <p>{person.role}</p>
+                    <p className="pa-person-role">{person.role}</p>
+                    <p className="pa-person-desc">{person.description}</p>
                   </div>
                 </article>
               ))}

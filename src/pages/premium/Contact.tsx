@@ -15,14 +15,14 @@ const contacts = [
   },
   {
     name: 'Adv. Natasha M. Kasad',
-    role: 'Senior Associate',
+    role: 'Senior Legal Associate',
     email: 'pereiraassociates604@gmail.com',
     phone: '+91 9769302381',
     phoneHref: '+919769302381',
   },
   {
     name: 'Adv. Beverly Fernandes',
-    role: 'Associate',
+    role: 'Legal Associate',
     email: 'pereiraassociates604@gmail.com',
     phone: '+91 9920844503',
     phoneHref: '+919920844503',

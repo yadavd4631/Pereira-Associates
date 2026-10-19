@@ -172,6 +172,7 @@ export default function LiveSite() {
         <Route path="/team" component={TeamPage} />
         <Route path="/knowledge" component={KnowledgePage} />
         <Route path="/knowledge-center" component={KnowledgePage} />
+        <Route path="/knowledge-centre" component={KnowledgePage} />
         <Route path="/contact" component={ContactPage} />
         <Route component={NotFoundPage} />
       </Switch>
