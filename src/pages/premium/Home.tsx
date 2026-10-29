@@ -36,8 +36,8 @@ export function Home() {
           <b>P&amp;A</b>
         </div>
         <div className="pa-hero-inner">
-          <p className="p-eyebrow pa-rise" style={{ color: 'var(--pa-brass)' }}>Bandra West · Mumbai</p>
-          <h1 id="home-title" className="pa-rise" style={d(120)}>Clarity in counsel. <em>Steadfast in principle.</em></h1>
+          <p className="p-eyebrow pa-rise" style={{ color: 'var(--pa-brass)' }}>Bandra West · Mumbai, India</p>
+          <h1 id="home-title" className="pa-rise" style={d(120)}>Clarity in Counsel. <em>Steadfast in principle.</em></h1>
           <p className="lede pa-rise" style={d(260)}>Thoughtful legal guidance for people and businesses navigating complex matters.</p>
           <div className="pa-hero-actions pa-rise" style={d(400)}>
             <a className="pa-btn-brass" href={pageHref('Expertise')} data-testid="link-hero-expertise">View areas of practice <ArrowRight size={16} /></a>
@@ -47,7 +47,7 @@ export function Home() {
       </section>
 
       <section className="pa-proof" aria-label="Practice details">
-        <p className="rv">Legal counsel shaped by experience, grounded in trust.</p>
+        <p className="rv">Legal Counsel shaped by experience, grounded in trust.</p>
         <div className="rv" style={d(100)}><strong>34+ years</strong><span>of professional experience</span></div>
         <div className="rv" style={d(200)}><strong>Bombay High Court</strong></div>
         <div className="rv" style={d(300)}><strong>Government of India</strong><span>appointed Notary</span></div>
